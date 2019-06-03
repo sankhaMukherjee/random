@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>random module &mdash; src  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="modules.module1 package" href="modules.module1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> src
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.html">lib package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logs.html">logs package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">modules package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">random module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">src</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>random module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/random.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-random">
+<span id="random-module"></span><h1>random module<a class="headerlink" href="#module-random" title="Permalink to this headline">¶</a></h1>
+<p>Random variable generators.</p>
+<blockquote>
+<div><blockquote>
+<div><p>uniform within range</p>
+</div></blockquote>
+<blockquote>
+<div><p>pick random element
+pick random sample
+pick weighted random sample
+generate random permutation</p>
+</div></blockquote>
+<blockquote>
+<div><p>uniform
+triangular
+normal (Gaussian)
+lognormal
+negative exponential
+gamma
+beta
+pareto
+Weibull</p>
+</div></blockquote>
+<blockquote>
+<div><p>circular uniform
+von Mises</p>
+</div></blockquote>
+</div></blockquote>
+<p>General notes on the underlying Mersenne Twister core generator:</p>
+<ul class="simple">
+<li><p>The period is 2**19937-1.</p></li>
+<li><p>It is one of the most extensively tested generators in existence.</p></li>
+<li><p>The random() method is implemented in C, executes in a single Python step,
+and is, therefore, threadsafe.</p></li>
+</ul>
+<dl class="class">
+<dt id="random.Random">
+<em class="property">class </em><code class="sig-prename descclassname">random.</code><code class="sig-name descname">Random</code><span class="sig-paren">(</span><em class="sig-param">x=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_random.Random</span></code></p>
+<p>Random number generator base class used by bound module functions.</p>
+<p>Used to instantiate instances of Random to get generators that don’t
+share state.</p>
+<p>Class Random can also be subclassed if you want to use a different basic
+generator of your own devising: in that case, override the following
+methods:  random(), seed(), getstate(), and setstate().
+Optionally, implement a getrandbits() method so that randrange()
+can cover arbitrarily large ranges.</p>
+<dl class="attribute">
+<dt id="random.Random.VERSION">
+<code class="sig-name descname">VERSION</code><em class="property"> = 3</em><a class="headerlink" href="#random.Random.VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="random.Random.betavariate">
+<code class="sig-name descname">betavariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.betavariate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.betavariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Beta distribution.</p>
+<p>Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
+Returned values range between 0 and 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.choice">
+<code class="sig-name descname">choice</code><span class="sig-paren">(</span><em class="sig-param">seq</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.choice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.choice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Choose a random element from a non-empty sequence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.choices">
+<code class="sig-name descname">choices</code><span class="sig-paren">(</span><em class="sig-param">population</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">*</em>, <em class="sig-param">cum_weights=None</em>, <em class="sig-param">k=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.choices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a k sized list of population elements chosen with replacement.</p>
+<p>If the relative weights or cumulative weights are not specified,
+the selections are made with equal probability.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.expovariate">
+<code class="sig-name descname">expovariate</code><span class="sig-paren">(</span><em class="sig-param">lambd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.expovariate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.expovariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exponential distribution.</p>
+<p>lambd is 1.0 divided by the desired mean.  It should be
+nonzero.  (The parameter would be called “lambda”, but that is
+a reserved word in Python.)  Returned values range from 0 to
+positive infinity if lambd is positive, and from negative
+infinity to 0 if lambd is negative.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.gammavariate">
+<code class="sig-name descname">gammavariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.gammavariate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.gammavariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gamma distribution.  Not the gamma function!</p>
+<p>Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.</p>
+<p>The probability distribution function is:</p>
+<blockquote>
+<div><blockquote>
+<div><p>x ** (alpha - 1) * math.exp(-x / beta)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>pdf(x) =  ————————————–</dt><dd><p>math.gamma(alpha) * beta ** alpha</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.gauss">
+<code class="sig-name descname">gauss</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.gauss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.gauss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gaussian distribution.</p>
+<p>mu is the mean, and sigma is the standard deviation.  This is
+slightly faster than the normalvariate() function.</p>
+<p>Not thread-safe without a lock around calls.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.getstate">
+<code class="sig-name descname">getstate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.getstate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.getstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return internal state; can be passed to setstate() later.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.lognormvariate">
+<code class="sig-name descname">lognormvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.lognormvariate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.lognormvariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log normal distribution.</p>
+<p>If you take the natural logarithm of this distribution, you’ll get a
+normal distribution with mean mu and standard deviation sigma.
+mu can have any value, and sigma must be greater than zero.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.normalvariate">
+<code class="sig-name descname">normalvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.normalvariate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.normalvariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal distribution.</p>
+<p>mu is the mean, and sigma is the standard deviation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.paretovariate">
+<code class="sig-name descname">paretovariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.paretovariate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.paretovariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pareto distribution.  alpha is the shape parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.randint">
+<code class="sig-name descname">randint</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.randint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.randint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random integer in range [a, b], including both end points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.randrange">
+<code class="sig-name descname">randrange</code><span class="sig-paren">(</span><em class="sig-param">start</em>, <em class="sig-param">stop=None</em>, <em class="sig-param">step=1</em>, <em class="sig-param">_int=&lt;class 'int'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.randrange"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.randrange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Choose a random item from range(start, stop[, step]).</p>
+<p>This fixes the problem with randint() which includes the
+endpoint; in Python this is usually not what you want.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.sample">
+<code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">population</em>, <em class="sig-param">k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chooses k unique random elements from a population sequence or set.</p>
+<p>Returns a new list containing elements from the population while
+leaving the original population unchanged.  The resulting list is
+in selection order so that all sub-slices will also be valid random
+samples.  This allows raffle winners (the sample) to be partitioned
+into grand prize and second place winners (the subslices).</p>
+<p>Members of the population need not be hashable or unique.  If the
+population contains repeats, then each occurrence is a possible
+selection in the sample.</p>
+<p>To choose a sample in a range of integers, use range as an argument.
+This is especially fast and space efficient for sampling from a
+large population:   sample(range(10000000), 60)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.seed">
+<code class="sig-name descname">seed</code><span class="sig-paren">(</span><em class="sig-param">a=None</em>, <em class="sig-param">version=2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.seed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize internal state from hashable object.</p>
+<p>None or no argument seeds from current time or from an operating
+system specific randomness source if available.</p>
+<p>If <em>a</em> is an int, all bits are used.</p>
+<p>For version 2 (the default), all of the bits are used if <em>a</em> is a str,
+bytes, or bytearray.  For version 1 (provided for reproducing random
+sequences from older versions of Python), the algorithm for str and
+bytes generates a narrower range of seeds.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.setstate">
+<code class="sig-name descname">setstate</code><span class="sig-paren">(</span><em class="sig-param">state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.setstate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.setstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore internal state from object returned by getstate().</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.shuffle">
+<code class="sig-name descname">shuffle</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">random=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.shuffle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shuffle list x in place, and return None.</p>
+<p>Optional argument random is a 0-argument function returning a
+random float in [0.0, 1.0); if it is the default None, the
+standard random.random will be used.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.triangular">
+<code class="sig-name descname">triangular</code><span class="sig-paren">(</span><em class="sig-param">low=0.0</em>, <em class="sig-param">high=1.0</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.triangular"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.triangular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Triangular distribution.</p>
+<p>Continuous distribution bounded by given lower and upper limits,
+and having a given mode value in-between.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Triangular_distribution">http://en.wikipedia.org/wiki/Triangular_distribution</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.uniform">
+<code class="sig-name descname">uniform</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.uniform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a random number in the range [a, b) or [a, b] depending on rounding.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.vonmisesvariate">
+<code class="sig-name descname">vonmisesvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">kappa</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.vonmisesvariate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.vonmisesvariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Circular data distribution.</p>
+<p>mu is the mean angle, expressed in radians between 0 and 2*pi, and
+kappa is the concentration parameter, which must be greater than or
+equal to zero.  If kappa is equal to zero, this distribution reduces
+to a uniform random angle over the range 0 to 2*pi.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.Random.weibullvariate">
+<code class="sig-name descname">weibullvariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#Random.weibullvariate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.Random.weibullvariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weibull distribution.</p>
+<p>alpha is the scale parameter and beta is the shape parameter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="random.seed">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">seed</code><span class="sig-paren">(</span><em class="sig-param">a=None</em>, <em class="sig-param">version=2</em><span class="sig-paren">)</span><a class="headerlink" href="#random.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize internal state from hashable object.</p>
+<p>None or no argument seeds from current time or from an operating
+system specific randomness source if available.</p>
+<p>If <em>a</em> is an int, all bits are used.</p>
+<p>For version 2 (the default), all of the bits are used if <em>a</em> is a str,
+bytes, or bytearray.  For version 1 (provided for reproducing random
+sequences from older versions of Python), the algorithm for str and
+bytes generates a narrower range of seeds.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.random">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; x in the interval [0, 1).<a class="headerlink" href="#random.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="random.uniform">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">uniform</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#random.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a random number in the range [a, b) or [a, b] depending on rounding.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.randint">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">randint</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#random.randint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random integer in range [a, b], including both end points.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.choice">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">choice</code><span class="sig-paren">(</span><em class="sig-param">seq</em><span class="sig-paren">)</span><a class="headerlink" href="#random.choice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Choose a random element from a non-empty sequence.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.sample">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param">population</em>, <em class="sig-param">k</em><span class="sig-paren">)</span><a class="headerlink" href="#random.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chooses k unique random elements from a population sequence or set.</p>
+<p>Returns a new list containing elements from the population while
+leaving the original population unchanged.  The resulting list is
+in selection order so that all sub-slices will also be valid random
+samples.  This allows raffle winners (the sample) to be partitioned
+into grand prize and second place winners (the subslices).</p>
+<p>Members of the population need not be hashable or unique.  If the
+population contains repeats, then each occurrence is a possible
+selection in the sample.</p>
+<p>To choose a sample in a range of integers, use range as an argument.
+This is especially fast and space efficient for sampling from a
+large population:   sample(range(10000000), 60)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.randrange">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">randrange</code><span class="sig-paren">(</span><em class="sig-param">start</em>, <em class="sig-param">stop=None</em>, <em class="sig-param">step=1</em>, <em class="sig-param">_int=&lt;class 'int'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#random.randrange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Choose a random item from range(start, stop[, step]).</p>
+<p>This fixes the problem with randint() which includes the
+endpoint; in Python this is usually not what you want.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.shuffle">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">shuffle</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">random=None</em><span class="sig-paren">)</span><a class="headerlink" href="#random.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shuffle list x in place, and return None.</p>
+<p>Optional argument random is a 0-argument function returning a
+random float in [0.0, 1.0); if it is the default None, the
+standard random.random will be used.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.normalvariate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">normalvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.normalvariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal distribution.</p>
+<p>mu is the mean, and sigma is the standard deviation.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.lognormvariate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">lognormvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.lognormvariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log normal distribution.</p>
+<p>If you take the natural logarithm of this distribution, you’ll get a
+normal distribution with mean mu and standard deviation sigma.
+mu can have any value, and sigma must be greater than zero.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.expovariate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">expovariate</code><span class="sig-paren">(</span><em class="sig-param">lambd</em><span class="sig-paren">)</span><a class="headerlink" href="#random.expovariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exponential distribution.</p>
+<p>lambd is 1.0 divided by the desired mean.  It should be
+nonzero.  (The parameter would be called “lambda”, but that is
+a reserved word in Python.)  Returned values range from 0 to
+positive infinity if lambd is positive, and from negative
+infinity to 0 if lambd is negative.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.vonmisesvariate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">vonmisesvariate</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">kappa</em><span class="sig-paren">)</span><a class="headerlink" href="#random.vonmisesvariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Circular data distribution.</p>
+<p>mu is the mean angle, expressed in radians between 0 and 2*pi, and
+kappa is the concentration parameter, which must be greater than or
+equal to zero.  If kappa is equal to zero, this distribution reduces
+to a uniform random angle over the range 0 to 2*pi.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.gammavariate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">gammavariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.gammavariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gamma distribution.  Not the gamma function!</p>
+<p>Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.</p>
+<p>The probability distribution function is:</p>
+<blockquote>
+<div><blockquote>
+<div><p>x ** (alpha - 1) * math.exp(-x / beta)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>pdf(x) =  ————————————–</dt><dd><p>math.gamma(alpha) * beta ** alpha</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.triangular">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">triangular</code><span class="sig-paren">(</span><em class="sig-param">low=0.0</em>, <em class="sig-param">high=1.0</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#random.triangular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Triangular distribution.</p>
+<p>Continuous distribution bounded by given lower and upper limits,
+and having a given mode value in-between.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Triangular_distribution">http://en.wikipedia.org/wiki/Triangular_distribution</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.gauss">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">gauss</code><span class="sig-paren">(</span><em class="sig-param">mu</em>, <em class="sig-param">sigma</em><span class="sig-paren">)</span><a class="headerlink" href="#random.gauss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gaussian distribution.</p>
+<p>mu is the mean, and sigma is the standard deviation.  This is
+slightly faster than the normalvariate() function.</p>
+<p>Not thread-safe without a lock around calls.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.betavariate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">betavariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.betavariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Beta distribution.</p>
+<p>Conditions on the parameters are alpha &gt; 0 and beta &gt; 0.
+Returned values range between 0 and 1.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.paretovariate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">paretovariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#random.paretovariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pareto distribution.  alpha is the shape parameter.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.weibullvariate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">weibullvariate</code><span class="sig-paren">(</span><em class="sig-param">alpha</em>, <em class="sig-param">beta</em><span class="sig-paren">)</span><a class="headerlink" href="#random.weibullvariate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Weibull distribution.</p>
+<p>alpha is the scale parameter and beta is the shape parameter.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.getstate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">getstate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#random.getstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return internal state; can be passed to setstate() later.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.setstate">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">setstate</code><span class="sig-paren">(</span><em class="sig-param">state</em><span class="sig-paren">)</span><a class="headerlink" href="#random.setstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore internal state from object returned by getstate().</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="random.getrandbits">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">getrandbits</code><span class="sig-paren">(</span><em class="sig-param">k</em><span class="sig-paren">)</span> &#x2192; x.  Generates an int with k random bits.<a class="headerlink" href="#random.getrandbits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="random.choices">
+<code class="sig-prename descclassname">random.</code><code class="sig-name descname">choices</code><span class="sig-paren">(</span><em class="sig-param">population</em>, <em class="sig-param">weights=None</em>, <em class="sig-param">*</em>, <em class="sig-param">cum_weights=None</em>, <em class="sig-param">k=1</em><span class="sig-paren">)</span><a class="headerlink" href="#random.choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a k sized list of population elements chosen with replacement.</p>
+<p>If the relative weights or cumulative weights are not specified,
+the selections are made with equal probability.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="random.SystemRandom">
+<em class="property">class </em><code class="sig-prename descclassname">random.</code><code class="sig-name descname">SystemRandom</code><span class="sig-paren">(</span><em class="sig-param">x=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#SystemRandom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.SystemRandom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#random.Random" title="random.Random"><code class="xref py py-class docutils literal notranslate"><span class="pre">random.Random</span></code></a></p>
+<p>Alternate random number generator using sources provided
+by the operating system (such as /dev/urandom on Unix or
+CryptGenRandom on Windows).</p>
+<blockquote>
+<div><p>Not available on all systems (see os.urandom() for details).</p>
+</div></blockquote>
+<dl class="method">
+<dt id="random.SystemRandom.getrandbits">
+<code class="sig-name descname">getrandbits</code><span class="sig-paren">(</span><em class="sig-param">k</em><span class="sig-paren">)</span> &#x2192; x.  Generates an int with k random bits.<a class="reference internal" href="_modules/random.html#SystemRandom.getrandbits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.SystemRandom.getrandbits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="random.SystemRandom.getstate">
+<code class="sig-name descname">getstate</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#random.SystemRandom.getstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method should not be called for a system random number generator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.SystemRandom.random">
+<code class="sig-name descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#SystemRandom.random"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.SystemRandom.random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next random number in the range [0.0, 1.0).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.SystemRandom.seed">
+<code class="sig-name descname">seed</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/random.html#SystemRandom.seed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#random.SystemRandom.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stub method.  Not used for a system random number generator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="random.SystemRandom.setstate">
+<code class="sig-name descname">setstate</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#random.SystemRandom.setstate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method should not be called for a system random number generator.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="modules.module1.html" class="btn btn-neutral float-left" title="modules.module1 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Author
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
